@@ -1,1 +1,1 @@
-# generátor smutné kampaně
+# generátor veselé kampaně
