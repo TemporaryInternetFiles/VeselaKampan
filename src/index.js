@@ -71,6 +71,9 @@ const repaintImage = async () => {
 
   // randomize logo and text position flip
   const logoTextFlip = Math.random() < 0.5;
+  const colorPaletteFlip = Math.random() < 0.3;
+  const colorA = colorPaletteFlip ? "#c8dd45" : 'hsl(' + (Math.floor(Math.random() * 12) * 30) + ', 70%, 80%)';
+  const colorB = colorPaletteFlip ? "#f9dc4d" : 'hsl(' + (Math.floor(Math.random() * 12) * 30) + ', 70%, 80%)';
 
   ctx.setTransform(); // reset so that everything else is normal size
   logoTextFlip ? ctx.drawImage(logo, 525, 20) : ctx.drawImage(logo, 20, 625);
@@ -83,7 +86,7 @@ const repaintImage = async () => {
     const y = logoTextFlip ? 685 : 30;
     const padding = (fontSize == 60) ? 15 : 10;
     const lineHeight = padding + fontSize;
-    ctx.fillStyle = (index < (lines.length -1) / 2) ? (logoTextFlip ? "#c8dd45" : "#f9dc4d") : (logoTextFlip ? "#f9dc4d" : "#c8dd45");
+    ctx.fillStyle = (index < (lines.length -1) / 2) ? (logoTextFlip ? colorA : colorB) : (logoTextFlip ? colorB : colorA);
     logoTextFlip ? ctx.fillRect(x, y - (index * lineHeight), ctx.measureText(line).width + 2 * padding, lineHeight) : ctx.fillRect(x - (ctx.measureText(line).width), y + (index * lineHeight), ctx.measureText(line).width + 2 * padding, lineHeight);
     ctx.textBaseline = "top";
     ctx.fillStyle = "black";
