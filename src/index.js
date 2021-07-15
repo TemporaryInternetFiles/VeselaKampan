@@ -81,7 +81,7 @@ const repaintImage = async () => {
   lines.forEach((line, index) => {
     const x = logoTextFlip ? 30 : 740;
     const y = logoTextFlip ? 685 : 30;
-    const padding = 15;
+    const padding = (fontSize == 60) ? 15 : 10;
     const lineHeight = padding + fontSize;
     ctx.fillStyle = (index < (lines.length -1) / 2) ? (logoTextFlip ? "#c8dd45" : "#f9dc4d") : (logoTextFlip ? "#f9dc4d" : "#c8dd45");
     logoTextFlip ? ctx.fillRect(x, y - (index * lineHeight), ctx.measureText(line).width + 2 * padding, lineHeight) : ctx.fillRect(x - (ctx.measureText(line).width), y + (index * lineHeight), ctx.measureText(line).width + 2 * padding, lineHeight);
