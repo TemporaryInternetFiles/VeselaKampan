@@ -8,7 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1% auto;
+    margin: 0;
     overflow-x: hidden;
 }
 
@@ -146,6 +146,23 @@ input::placeholder {
     text-align: center;
     line-height: normal;
     width: 90%;
+}
+
+#footer {
+    background: #000000;
+    color: #f0f0f0;
+    width: 100%;
+    text-align: center;
+    padding: 1em;
+    margin: 1em 0 0 0;
+}
+
+#footer a:link, #footer a:visited {
+    color: #f9dc4d;
+}
+
+#footer a:hover {
+    color: #c8dd45;
 }
 
 @media only screen and (max-width: 800px) {
