@@ -8,12 +8,12 @@
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Kampaň, do které se může zapojit úplně každý" />
   <meta property="og:description" content="Zadavatel a zpracovatel: Pirátská homoskinheadská platforma" />
-  <meta property="og:image" content="/public/ogimage.png" />
+  <meta property="og:image" content="public/ogimage.jpg" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@donkeydushan" />
   <meta name="twitter:title" content="Kampaň, do které se může zapojit úplně každý" />
   <meta name="twitter:description" content="Zadavatel a zpracovatel: Pirátská homoskinheadská platforma" />
-  <meta name="twitter:image" content="/public/ogimage.png" />
+  <meta name="twitter:image" content="public/ogimage.jpg" />
   <title>Kampaň, do které se může zapojit úplně každý</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -22,34 +22,39 @@
   <h1 class="title">
     Kampaň, do které se může zapojit úplně každý
   </h1>
-  <div class="picture-container">
-    <canvas id="picture" width="800" height="800"></canvas>
-  </div>
-  <div class="button-container">
-    <div class="random-button-container">
-      <button id="randomize" class="random-button">
-        Náhodně vygenerovat
-      </button>
-      <div class="random-button-secondary-container">
-        <button id="randomize-img" class="random-button-secondary">
-          Jen obrázek
+
+  <div id="container">
+    <div class="button-container">
+      <div class="random-button-container">
+        <button id="randomize" class="random-button fullRow">
+          Náhodně vygenerovat
         </button>
-        <button id="randomize-text" class="random-button-secondary">
-          Jen text
-        </button>
+        <div class="random-button-secondary-container">
+          <button id="randomize-img" class="random-button-secondary">
+            Jen obrázek
+          </button>
+          <button id="randomize-text" class="random-button-secondary">
+            Jen text
+          </button>
+        </div>
       </div>
+      <form action="#" style="display: none;">
+        <input name="custom-image" id="customImage" type="file" accept="image/*" />
+      </form>
+      <button id="customImageBtn" class="fullRow">
+        Vložit vlastní obrázek
+      </button>
+      <br />
+      <input id="customText" placeholder="Vložit vlastní text">
+      <br />
+      <button class="save fullRow" id="save">Stáhnout výsledek</button>
     </div>
-
-    <form action="#" style="display: none;">
-      <input name="custom-image" id="customImage" type="file" accept="image/*" />
-    </form>
-    <button id="customImageBtn">
-      Vložit vlastní obrázek
-    </button>
-
-    <input id="customText" placeholder="Vložit vlastní text">
+  
+    <div class="picture-container">
+      <canvas id="picture" width="800" height="800"></canvas>
+    </div>
   </div>
-  <a class="save" id="save">Uložit</a>
+  
   <div id="footer">
     Původní zdrojový kód od @donkeydushan byl zvandalizován <a href="https://piratskahomoskinheadskaplatforma.cz/">Pirátskou homoskinheadskou platformou</a>
   </div>
