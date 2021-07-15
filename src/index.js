@@ -80,7 +80,7 @@ const repaintImage = async () => {
     const y = 685;
     const padding = 15;
     const lineHeight = padding + fontSize;
-    ctx.fillStyle = "#f9dc4d";
+    ctx.fillStyle = (index < (lines.length -1) / 2) ? "#c8dd45" : "#f9dc4d";
     ctx.fillRect(x, y - (index * lineHeight), ctx.measureText(line).width + 2 * padding, lineHeight);
     ctx.textBaseline = "top";
     ctx.fillStyle = "black";
