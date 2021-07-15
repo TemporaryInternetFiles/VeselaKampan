@@ -69,22 +69,25 @@ const repaintImage = async () => {
   ctx.setTransform(scale, 0, 0, scale, 0, 0);
   ctx.drawImage(currentImage, 0, 0);
 
-  ctx.setTransform(); // reset so that everything else is normal size
-  ctx.drawImage(logo, 525, 20);
+  // randomize logo and text position flip
+  const logoTextFlip = Math.random() < 0.5;
 
-  const lines = splitText(currentText, 20).reverse();
+  ctx.setTransform(); // reset so that everything else is normal size
+  logoTextFlip ? ctx.drawImage(logo, 525, 20) : ctx.drawImage(logo, 20, 625);
+
+  const lines = logoTextFlip ? splitText(currentText, 20).reverse() : splitText(currentText, 20);
   const fontSize = lines.length < 5 ? 60 : 40;
   ctx.font = `${fontSize}px 'Bebas Neue'`;
   lines.forEach((line, index) => {
-    const x = 30;
-    const y = 685;
+    const x = logoTextFlip ? 30 : 740;
+    const y = logoTextFlip ? 685 : 30;
     const padding = 15;
     const lineHeight = padding + fontSize;
-    ctx.fillStyle = (index < (lines.length -1) / 2) ? "#c8dd45" : "#f9dc4d";
-    ctx.fillRect(x, y - (index * lineHeight), ctx.measureText(line).width + 2 * padding, lineHeight);
+    ctx.fillStyle = (index < (lines.length -1) / 2) ? (logoTextFlip ? "#c8dd45" : "#f9dc4d") : (logoTextFlip ? "#f9dc4d" : "#c8dd45");
+    logoTextFlip ? ctx.fillRect(x, y - (index * lineHeight), ctx.measureText(line).width + 2 * padding, lineHeight) : ctx.fillRect(x - (ctx.measureText(line).width), y + (index * lineHeight), ctx.measureText(line).width + 2 * padding, lineHeight);
     ctx.textBaseline = "top";
     ctx.fillStyle = "black";
-    ctx.fillText(line, x + padding, y + padding - (index * lineHeight));
+    logoTextFlip ? ctx.fillText(line, x + padding, y + padding - (index * lineHeight)) : ctx.fillText(line, x - (ctx.measureText(line).width) + padding, y + padding + (index * lineHeight));
   });
 
   imageReader.addEventListener("load", (e) => {
