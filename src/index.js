@@ -5,7 +5,7 @@ const unrolledGenerators = generators.flatMap(({ url, weight }) => Array(weight)
 
 const imageReader = new FileReader();
 const logo = new Image();
-logo.src = "https://piratskahomoskinheadskaplatforma.cz/VeselaKampan/public/logo.png";
+logo.src = "https://temporaryinternetfiles.github.io/VeselaKampan/public/logo.png";
 let currentImage = new Image();
 let currentText = "Test text";
 
@@ -31,7 +31,7 @@ const rerollText = () => {
 
 const canvas = document.getElementById("picture");
 const ctx = canvas.getContext("2d");
-const font = new FontFace("Bebas Neue", "url(https://piratskahomoskinheadskaplatforma.cz/VeselaKampan/public/BebasNeue-Bold.ttf)");
+const font = new FontFace("Bebas Neue", "url(https://temporaryinternetfiles.github.io/VeselaKampan/public/BebasNeue-Bold.ttf)");
 
 const initFont = async () => {
   await font.load();
@@ -76,7 +76,7 @@ const repaintImage = async () => {
   const colorB = colorPaletteFlip ? "#f9dc4d" : 'hsl(' + (Math.floor(Math.random() * 12) * 30) + ', 70%, 80%)';
 
   ctx.setTransform(); // reset so that everything else is normal size
-  logoTextFlip ? ctx.drawImage(logo, 525, 20) : ctx.drawImage(logo, 20, 625);
+  logoTextFlip ? ctx.drawImage(logo, 555, 20) : ctx.drawImage(logo, 20, 625);
 
   const lines = logoTextFlip ? splitText(currentText, 20).reverse() : splitText(currentText, 20);
   const fontSize = lines.length < 5 ? 60 : 40;
